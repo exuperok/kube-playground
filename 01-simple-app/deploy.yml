@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: simpleapp-dpl
+spec:
+  selector:
+    matchLabels:
+      app: simpleapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: simpleapp
+    spec:
+      containers:
+      - name: simpleapp
+        image: katacoda/docker-http-server:latest
+        ports:
+        - containerPort: 80
